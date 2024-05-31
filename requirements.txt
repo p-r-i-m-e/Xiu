@@ -1,5 +1,6 @@
-requests
-pyrogram
-random
-Flask
-gunicorn
+python-telegram-bot==13.7
+requests==2.25.1
+python-dotenv==0.19.0
+pyrogram==2.0.63
+Flask==2.0.1
+gunicorn==20.1.0
