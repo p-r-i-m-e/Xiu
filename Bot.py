@@ -6,7 +6,7 @@ def start(update, context):
 
 # Define a function to handle normal messages
 def respond(update, context):
-    user_mes issage = update.message.text.lower()
+    user_message = update.message.text.lower()
     
     # Define responses based on user messages
     if 'hi' in user_message:
