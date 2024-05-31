@@ -13,7 +13,7 @@ def respond(update, context):
         update.message.reply_text('Hi! ဘာလာရှာတာလည်း?')
     elif 'lee' in user_message:
         update.message.reply_text('Lee lar Kmkl')
-    elif 'နေကောင်းလား'  in user_message:
+    elif 'နေကောင်းလား' in user_message:
         update.message.reply_text("ကောင်းတယ်")
     elif 'ဘယ်သူလည်း' in user_message:
         update.message.reply_text("မင်းဖေ")
@@ -44,13 +44,13 @@ def respond(update, context):
 
 # Function to send a direct message to the server
 def send_to_server(update, context):
-    server_chat_id = "1315703144"  # Replace SERVER_CHAT_ID with the actual chat ID of the server
+    server_chat_id = "1315703144"  # Replace with the actual chat ID of the server
     message = "This is a message sent from the bot to the server."
     context.bot.send_message(chat_id=server_chat_id, text=message)
 
 def main():
     # Create the Updater and pass in your bot's token
-    updater = Updater("7010824792:AAGX8uLjw1eN_d-TyxDHhXMTGlhtvgUADO4")
+    updater = Updater("7010824792:AAGX8uLjw1eN_d-TyxDHhXMTGlhtvgUADO4", use_context=True)
 
     # Get the dispatcher to register handlers
     dp = updater.dispatcher
@@ -59,9 +59,9 @@ def main():
     dp.add_handler(CommandHandler("start", start))
 
     # Add message handler for normal messages
-    dp.add_handler(MessageHandler(Filters.text, respond))  # Filter messages using Filters.text
+    dp.add_handler(MessageHandler(Filters.text & ~Filters.command, respond))  # Filter messages using Filters.text
 
-    # Add command lhandler for sending message to server
+    # Add command handler for sending message to server
     dp.add_handler(CommandHandler("send_to_server", send_to_server))
 
     # Start the Bot
